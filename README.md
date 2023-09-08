@@ -20,3 +20,7 @@
         touch app.js
         rm app.js
         exit
+
+# Docker-compose instructions
+        docker-compose up -d
+        docker-compose down
