@@ -20,6 +20,7 @@
         touch app.js
         rm app.js
         exit
+        printenv
 
 # Docker-compose instructions
         docker-compose up -d
