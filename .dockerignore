@@ -3,3 +3,4 @@ Dockerfile
 .env
 .gitignore
 README.md
+docker-compose*
