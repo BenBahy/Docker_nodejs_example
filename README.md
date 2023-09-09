@@ -14,6 +14,13 @@
         docker container remove express-node-app-container -f
         docker image remove express-node-app
         docker image prune --all
+        docker logs express-node-app-container --follow
+        docker inspect docker_nodejs_example-mongo-1
+        docker network ls
+        docker network inspect docker_nodejs_example_default
+        docker volume ls
+        docker volume prune 
+        docker exec -it docker_nodejs_example-mongo-1 mongosh -u root -p example
 
 # Bash instructions
         ls
@@ -30,3 +37,10 @@
         docker-compose down
         docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up -d --build
         docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down
+
+# Mongo instructions
+        mongo -u root -p example
+        show dbs
+        use testDB
+        db.books.insertOne({ title: "book 1" })
+        db.books.find()
