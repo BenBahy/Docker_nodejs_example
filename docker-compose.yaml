@@ -8,6 +8,7 @@ services:
       - ./.env
     depends_on:
       - mongo
+      - postgres
       - redis
   mongo:
     image: mongo
@@ -38,6 +39,15 @@ services:
     - "80:80"
     depends_on:
       - node-app
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: example
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
 
 volumes:
   mongo_db:
+  postgres_db:
