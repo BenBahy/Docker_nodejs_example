@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const redis = require('redis');
 const postgres = require('pg');
+const os = require('os');
 
 // init app
 const app = express();
@@ -46,11 +47,12 @@ postgresClient.connect()
 
 // url routs
 app.get('/', async (req, res) => {
+    console.log(`traffic from ${os.hostname}!`);
     await redisClient.set('products', 'products...');
     res.send('<h1>Hello World!</h1>');
 });
 app.get('/data', async (req, res) => {
-
+    console.log(`traffic from ${os.hostname}!`);
     const value = await redisClient.get('products');
     res.send(`<h1>Hello World!</h1><h2>${value}</h2>`);
 });

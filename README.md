@@ -9,7 +9,7 @@
         docker image ls
         docker run --name express-node-app-container --volume=${PWD}/src:/app/src:ro -dp 4000:4000 express-node-app
         docker ps --all
-        docker logs express-node-app-container
+        docker logs docker_nodejs_example-node-app-1 -f
         docker exec -it express-node-app-container bash
         docker container remove express-node-app-container -f
         docker image remove express-node-app
@@ -35,7 +35,7 @@
 # Docker-compose instructions
         docker-compose up -d
         docker-compose down
-        docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up -d --build
+        docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up -d --build --scale node-app=3
         docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down
 
 # Mongo instructions
