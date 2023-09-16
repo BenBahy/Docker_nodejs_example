@@ -22,6 +22,13 @@
         docker volume prune 
         docker exec -it docker_nodejs_example-mongo-1 mongosh -u root -p example
         docker login
+        docker info
+        docker swarm init 
+        docker stack deploy -c docker-compose.yaml -c docker-compose.prod.yaml node-app-stack
+        docker stack rm node-app-stack
+        docker stack ls
+        docker stack services node-app-stack
+        docker stack ps node-app-stack
 
 # Bash instructions
         ls
@@ -47,3 +54,5 @@
         use testDB
         db.books.insertOne({ title: "book 1" })
         db.books.find()
+# Docs
+https://docs.docker.com/compose/compose-file/compose-file-v3/#deploy

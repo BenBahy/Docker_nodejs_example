@@ -49,7 +49,7 @@ postgresClient.connect()
 app.get('/', async (req, res) => {
     console.log(`traffic from ${os.hostname}!`);
     await redisClient.set('products', 'products...');
-    res.send('<h1>Hello World! using DockerHub</h1>');
+    res.send('<h1>Hello World! using docker swarm</h1>');
 });
 app.get('/data', async (req, res) => {
     console.log(`traffic from ${os.hostname}!`);
