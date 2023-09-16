@@ -1,6 +1,7 @@
 version: "3"
 services:
   node-app:
+    image: abahey/node-app-docker
     env_file:
       - ./.env
     depends_on:

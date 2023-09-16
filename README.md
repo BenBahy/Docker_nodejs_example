@@ -21,6 +21,7 @@
         docker volume ls
         docker volume prune 
         docker exec -it docker_nodejs_example-mongo-1 mongosh -u root -p example
+        docker login
 
 # Bash instructions
         ls
@@ -37,7 +38,9 @@
         docker-compose down
         docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up -d --build --scale node-app=3
         docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down
-
+        docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml build
+        docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml push node-app
+        docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml pull
 # Mongo instructions
         mongo -u root -p example
         show dbs
